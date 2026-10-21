@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign in</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <main class="card" role="main">
+      <header class="card__header">
+        <div class="logo" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="8" fill="var(--color-accent)"/>
+            <path d="M9 16.5L14 21.5L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h1 class="card__title">Welcome back</h1>
+        <p class="card__subtitle">Sign in to your account to continue</p>
+      </header>
+
+      <form class="form" id="loginForm" novalidate>
+        <div class="field" id="field-email">
+          <label class="field__label" for="email">Email address</label>
+          <input
+            class="field__input"
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+            aria-required="true"
+            aria-describedby="email-error"
+          />
+          <span class="field__error" id="email-error" role="alert" aria-live="polite"></span>
+        </div>
+
+        <div class="field" id="field-password">
+          <label class="field__label" for="password">
+            Password
+            <a href="#" class="field__label-link" tabindex="0">Forgot password?</a>
+          </label>
+          <div class="field__input-wrap">
+            <input
+              class="field__input"
+              type="password"
+              id="password"
+              name="password"
+              autocomplete="current-password"
+              placeholder="••••••••"
+              aria-required="true"
+              aria-describedby="password-error"
+            />
+            <button
+              type="button"
+              class="field__toggle"
+              id="togglePassword"
+              aria-label="Show password"
+              aria-pressed="false"
+            >
+              <svg class="icon icon-eye" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              <svg class="icon icon-eye-off" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+                <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+                <line x1="1" y1="1" x2="23" y2="23"/>
+              </svg>
+            </button>
+          </div>
+          <span class="field__error" id="password-error" role="alert" aria-live="polite"></span>
+        </div>
+
+        <div class="field field--row">
+          <label class="checkbox">
+            <input type="checkbox" id="remember" name="remember" class="checkbox__input" />
+            <span class="checkbox__box" aria-hidden="true"></span>
+            <span class="checkbox__label">Keep me signed in</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn--primary" id="submitBtn">
+          <span class="btn__label">Sign in</span>
+          <span class="btn__spinner" aria-hidden="true" style="display:none">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            </svg>
+          </span>
+        </button>
+
+        <div class="sr-only" id="formStatus" aria-live="polite" aria-atomic="true"></div>
+      </form>
+
+      <footer class="card__footer">
+        <p>Don't have an account? <a href="#">Create one</a></p>
+      </footer>
+    </main>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
