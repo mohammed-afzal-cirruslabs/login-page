@@ -33,6 +33,9 @@ Thumbs.db
 *.swp
 *.swo
 
+# TypeScript incremental build info
+*.tsbuildinfo
+
 # Test coverage
 coverage/
 .nyc_output/
