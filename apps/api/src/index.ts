@@ -10,7 +10,7 @@ import helmet from 'helmet'
 import { pino } from 'pino'
 import pinoHttp from 'pino-http'
 
-const log = pino({ level: process.env.LOG_LEVEL ?? 'info' })
+const log = pino({ level: process.env['LOG_LEVEL'] ?? 'info' })
 
 const app = express()
 
@@ -18,7 +18,7 @@ const app = express()
 app.use(helmet())
 app.use(
   cors({
-    origin: process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000',
+    origin: process.env['NEXT_PUBLIC_APP_URL'] ?? 'http://localhost:3000',
     credentials: true,
   }),
 )
@@ -56,7 +56,7 @@ app.use(
 )
 
 // ─── Start ────────────────────────────────────────────────────────────────────
-const PORT = Number(process.env.PORT ?? 4000)
+const PORT = Number(process.env['PORT'] ?? 4000)
 app.listen(PORT, () => {
   log.info({ port: PORT }, 'API server started')
 })
