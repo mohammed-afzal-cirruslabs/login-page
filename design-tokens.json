@@ -1,0 +1,272 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$metadata": {
+    "direction": "Amazon Utility + Vercel Calm",
+    "version": "1.0.0",
+    "ticket": "S-2",
+    "status": "awaiting-commander-approval"
+  },
+  "color": {
+    "brand": {
+      "primary": {
+        "light": "#FF9900",
+        "dark": "#FF9900",
+        "$description": "Amazon orange — primary CTA, add-to-cart, key highlights"
+      },
+      "primary-hover": {
+        "light": "#E68A00",
+        "dark": "#E68A00",
+        "$description": "Primary button hover state"
+      },
+      "primary-fg": {
+        "light": "#111111",
+        "dark": "#111111",
+        "$description": "Text on primary orange backgrounds"
+      },
+      "secondary": {
+        "light": "#131921",
+        "dark": "#131921",
+        "$description": "Navy — top navigation bar background"
+      },
+      "secondary-fg": {
+        "light": "#FFFFFF",
+        "dark": "#FFFFFF",
+        "$description": "Text on secondary navy backgrounds"
+      },
+      "accent": {
+        "light": "#00A8A8",
+        "dark": "#00C4C4",
+        "$description": "Teal — focus rings, links, interactive highlights"
+      },
+      "accent-hover": {
+        "light": "#008C8C",
+        "dark": "#00A8A8",
+        "$description": "Accent hover state"
+      }
+    },
+    "neutral": {
+      "background": {
+        "light": "#FFFFFF",
+        "dark": "#0F1111",
+        "$description": "Page background"
+      },
+      "surface-1": {
+        "light": "#F7F8F8",
+        "dark": "#1A1D1E",
+        "$description": "Card background"
+      },
+      "surface-2": {
+        "light": "#EAEDED",
+        "dark": "#232F3E",
+        "$description": "Panel / sidebar background"
+      },
+      "surface-3": {
+        "light": "#D5D9D9",
+        "dark": "#2E3A4A",
+        "$description": "Elevated panel (dark: lighter = higher)"
+      },
+      "border": {
+        "light": "rgba(0, 0, 0, 0.12)",
+        "dark": "rgba(255, 255, 255, 0.10)",
+        "$description": "Default divider / border"
+      },
+      "border-strong": {
+        "light": "rgba(0, 0, 0, 0.24)",
+        "dark": "rgba(255, 255, 255, 0.20)",
+        "$description": "Emphasis border (inputs on focus, table headers)"
+      }
+    },
+    "text": {
+      "primary": {
+        "light": "#111111",
+        "dark": "#F2F2F2",
+        "$description": "Body copy, headings — contrast ≥ 7:1"
+      },
+      "secondary": {
+        "light": "#565959",
+        "dark": "#A6A6A6",
+        "$description": "Supporting text, labels — contrast ≥ 4.5:1"
+      },
+      "muted": {
+        "light": "#8D8D8D",
+        "dark": "#6B6B6B",
+        "$description": "Timestamps, captions — use sparingly"
+      },
+      "inverse": {
+        "light": "#FFFFFF",
+        "dark": "#111111",
+        "$description": "Text on coloured backgrounds (buttons, badges)"
+      },
+      "link": {
+        "light": "#0066C0",
+        "dark": "#5DADE2",
+        "$description": "Hyperlinks — contrast ≥ 4.5:1"
+      },
+      "link-hover": {
+        "light": "#C45500",
+        "dark": "#F0A500",
+        "$description": "Link hover — Amazon convention: orange on hover"
+      },
+      "on-primary": {
+        "light": "#111111",
+        "dark": "#111111",
+        "$description": "Text placed directly on primary orange"
+      }
+    },
+    "semantic": {
+      "success": {
+        "light": "#067D62",
+        "dark": "#2ECC71",
+        "$description": "In stock, order confirmed, form valid"
+      },
+      "success-surface": {
+        "light": "#EAF5F1",
+        "dark": "#0D2E23",
+        "$description": "Success banner / alert background"
+      },
+      "warning": {
+        "light": "#C45500",
+        "dark": "#F0A500",
+        "$description": "Low stock, expiring soon, caution"
+      },
+      "warning-surface": {
+        "light": "#FEF9EE",
+        "dark": "#2D1F00",
+        "$description": "Warning banner / alert background"
+      },
+      "danger": {
+        "light": "#CC0C39",
+        "dark": "#FF4D6A",
+        "$description": "Error, destructive action, out of stock"
+      },
+      "danger-surface": {
+        "light": "#FFF0F0",
+        "dark": "#2D0010",
+        "$description": "Error banner / alert background"
+      },
+      "info": {
+        "light": "#0066C0",
+        "dark": "#5DADE2",
+        "$description": "Informational, neutral notice"
+      },
+      "info-surface": {
+        "light": "#EEF5FB",
+        "dark": "#0A1929",
+        "$description": "Info banner / alert background"
+      }
+    }
+  },
+  "typography": {
+    "font-family": {
+      "base": {
+        "value": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+        "$description": "Primary typeface — Inter variable font"
+      },
+      "mono": {
+        "value": "'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace",
+        "$description": "Code blocks, order IDs, SKUs"
+      }
+    },
+    "font-size": {
+      "xs":   { "value": "12px", "$description": "Badges, legal, timestamps" },
+      "sm":   { "value": "14px", "$description": "Secondary body, table cells" },
+      "base": { "value": "16px", "$description": "Primary body copy" },
+      "lg":   { "value": "20px", "$description": "Card titles, section headings" },
+      "xl":   { "value": "24px", "$description": "Page sub-headings" },
+      "2xl":  { "value": "32px", "$description": "Page headings" },
+      "3xl":  { "value": "48px", "$description": "Hero / marketing" }
+    },
+    "line-height": {
+      "xs":   { "value": "16px" },
+      "sm":   { "value": "20px" },
+      "base": { "value": "24px" },
+      "lg":   { "value": "28px" },
+      "xl":   { "value": "32px" },
+      "2xl":  { "value": "40px" },
+      "3xl":  { "value": "56px" }
+    },
+    "font-weight": {
+      "regular":  { "value": "400", "$description": "Body copy" },
+      "medium":   { "value": "500", "$description": "Labels, nav items" },
+      "semibold": { "value": "600", "$description": "Sub-headings, card titles" },
+      "bold":     { "value": "700", "$description": "Page headings, hero" }
+    }
+  },
+  "spacing": {
+    "1":  { "value": "4px",  "$description": "Icon gap, tight inline" },
+    "2":  { "value": "8px",  "$description": "Inner padding (compact)" },
+    "3":  { "value": "12px", "$description": "Inner padding (default)" },
+    "4":  { "value": "16px", "$description": "Card padding, list gap" },
+    "5":  { "value": "20px", "$description": "Section gap (small)" },
+    "6":  { "value": "24px", "$description": "Section gap (default)" },
+    "8":  { "value": "32px", "$description": "Section gap (large)" },
+    "10": { "value": "40px", "$description": "Page section gap" },
+    "12": { "value": "48px", "$description": "Hero padding" },
+    "16": { "value": "64px", "$description": "Page-level vertical rhythm" },
+    "content-max-width": { "value": "1280px", "$description": "Centred content container" },
+    "page-padding-desktop": { "value": "24px" },
+    "page-padding-mobile":  { "value": "16px" }
+  },
+  "border-radius": {
+    "sm":   { "value": "4px",    "$description": "Badges, tags, inputs, buttons" },
+    "md":   { "value": "8px",    "$description": "Cards, dropdowns, modals" },
+    "lg":   { "value": "12px",   "$description": "Bottom sheets, large panels" },
+    "full": { "value": "9999px", "$description": "Pills, avatars" }
+  },
+  "shadow": {
+    "none": {
+      "light": "none",
+      "dark":  "none",
+      "$description": "Flat surfaces, table rows"
+    },
+    "sm": {
+      "light": "0 1px 3px rgba(0, 0, 0, 0.12)",
+      "dark":  "none",
+      "$description": "Cards at rest — dark mode uses surface-2 instead"
+    },
+    "md": {
+      "light": "0 4px 12px rgba(0, 0, 0, 0.15)",
+      "dark":  "none",
+      "$description": "Dropdowns, popovers — dark mode uses surface-3"
+    },
+    "lg": {
+      "light": "0 8px 32px rgba(0, 0, 0, 0.20)",
+      "dark":  "none",
+      "$description": "Modals, drawers — dark mode uses surface-3 + border"
+    }
+  },
+  "z-index": {
+    "base":     { "value": "0" },
+    "raised":   { "value": "10",   "$description": "Sticky table headers, raised cards" },
+    "dropdown": { "value": "100",  "$description": "Dropdowns, comboboxes" },
+    "sticky":   { "value": "200",  "$description": "Sticky navigation bar" },
+    "overlay":  { "value": "300",  "$description": "Modal backdrop" },
+    "modal":    { "value": "400",  "$description": "Modal / drawer panel" },
+    "toast":    { "value": "500",  "$description": "Toast notifications" }
+  },
+  "transition": {
+    "duration-fast": { "value": "150ms", "$description": "Hover states, focus rings" },
+    "duration-base": { "value": "200ms", "$description": "Open/close, expand/collapse" },
+    "duration-slow": { "value": "300ms", "$description": "Page transitions, modals" },
+    "easing":        { "value": "cubic-bezier(0.16, 1, 0.3, 1)", "$description": "All transitions" },
+    "reduced-motion-duration": { "value": "0ms", "$description": "Applied when prefers-reduced-motion: reduce" }
+  },
+  "breakpoint": {
+    "xs":  { "value": "0px",    "$description": "Single column, 16px padding" },
+    "sm":  { "value": "640px",  "$description": "Single column, 24px padding" },
+    "md":  { "value": "768px",  "$description": "Two columns" },
+    "lg":  { "value": "1024px", "$description": "Three columns, sidebar visible" },
+    "xl":  { "value": "1280px", "$description": "Four columns, full nav" },
+    "2xl": { "value": "1536px", "$description": "Max-width capped at 1280px" }
+  },
+  "component-heights": {
+    "control-sm": { "value": "32px", "$description": "Compact controls (badges, small inputs)" },
+    "control-md": { "value": "40px", "$description": "Default controls (inputs, selects, buttons)" },
+    "control-lg": { "value": "48px", "$description": "Large CTA buttons, prominent actions" }
+  },
+  "icon-size": {
+    "inline":     { "value": "16px", "$description": "Inline with text" },
+    "standalone": { "value": "20px", "$description": "Standalone icon buttons" },
+    "nav":        { "value": "24px", "$description": "Navigation bar icons" }
+  }
+}
