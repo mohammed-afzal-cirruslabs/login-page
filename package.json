@@ -1,0 +1,39 @@
+{
+  "name": "ecom-monorepo",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Amazon-scale e-commerce platform — monorepo root",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check",
+    "test": "turbo run test",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
+    "db:generate": "turbo run db:generate --filter=@ecom/db",
+    "db:migrate": "turbo run db:migrate --filter=@ecom/db",
+    "db:studio": "turbo run db:studio --filter=@ecom/db"
+  },
+  "devDependencies": {
+    "turbo": "^2.1.3",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
+    "eslint": "^8.57.1",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-react": "^7.37.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-import-resolver-typescript": "^3.6.3"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "packageManager": "npm@10.8.2"
+}

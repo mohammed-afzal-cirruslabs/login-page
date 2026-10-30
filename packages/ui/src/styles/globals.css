@@ -1,0 +1,136 @@
+/**
+ * Global CSS — design token CSS custom properties.
+ * Generated from design-tokens.json (S-2).
+ * Import this once at the app root (apps/web/src/app/layout.tsx).
+ *
+ * All Tailwind classes that reference brand/neutral/text/semantic colours
+ * resolve through these variables, so swapping a theme is a single attribute
+ * change on <html data-theme="dark">.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Light theme (default) ─────────────────────────────────────────────── */
+:root,
+[data-theme='light'] {
+  /* Brand */
+  --color-primary:        #FF9900;
+  --color-primary-hover:  #E68A00;
+  --color-primary-fg:     #111111;
+  --color-secondary:      #131921;
+  --color-secondary-fg:   #FFFFFF;
+  --color-accent:         #00A8A8;
+  --color-accent-hover:   #008C8C;
+
+  /* Neutral surfaces */
+  --color-background:     #FFFFFF;
+  --color-surface-1:      #F7F8F8;
+  --color-surface-2:      #EAEDED;
+  --color-surface-3:      #D5D9D9;
+  --color-border:         rgba(0, 0, 0, 0.12);
+  --color-border-strong:  rgba(0, 0, 0, 0.24);
+
+  /* Text */
+  --color-text-primary:   #111111;
+  --color-text-secondary: #565959;
+  --color-text-muted:     #8D8D8D;
+  --color-text-inverse:   #FFFFFF;
+  --color-text-link:      #0066C0;
+  --color-text-link-hover:#C45500;
+  --color-text-on-primary:#111111;
+
+  /* Semantic */
+  --color-success:         #067D62;
+  --color-success-surface: #EAF5F1;
+  --color-warning:         #C45500;
+  --color-warning-surface: #FEF9EE;
+  --color-danger:          #CC0C39;
+  --color-danger-surface:  #FFF0F0;
+  --color-info:            #0066C0;
+  --color-info-surface:    #EEF5FB;
+}
+
+/* ─── Dark theme ─────────────────────────────────────────────────────────── */
+[data-theme='dark'] {
+  /* Brand */
+  --color-primary:        #FF9900;
+  --color-primary-hover:  #E68A00;
+  --color-primary-fg:     #111111;
+  --color-secondary:      #131921;
+  --color-secondary-fg:   #FFFFFF;
+  --color-accent:         #00C4C4;
+  --color-accent-hover:   #00A8A8;
+
+  /* Neutral surfaces — lighter = higher elevation in dark mode */
+  --color-background:     #0F1111;
+  --color-surface-1:      #1A1D1E;
+  --color-surface-2:      #232F3E;
+  --color-surface-3:      #2E3A4A;
+  --color-border:         rgba(255, 255, 255, 0.10);
+  --color-border-strong:  rgba(255, 255, 255, 0.20);
+
+  /* Text */
+  --color-text-primary:   #F2F2F2;
+  --color-text-secondary: #A6A6A6;
+  --color-text-muted:     #6B6B6B;
+  --color-text-inverse:   #111111;
+  --color-text-link:      #5DADE2;
+  --color-text-link-hover:#F0A500;
+  --color-text-on-primary:#111111;
+
+  /* Semantic */
+  --color-success:         #2ECC71;
+  --color-success-surface: #0D2E23;
+  --color-warning:         #F0A500;
+  --color-warning-surface: #2D1F00;
+  --color-danger:          #FF4D6A;
+  --color-danger-surface:  #2D0010;
+  --color-info:            #5DADE2;
+  --color-info-surface:    #0A1929;
+}
+
+/* ─── Base resets ────────────────────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+  }
+
+  /* Respect user motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0ms !important;
+      transition-duration: 0ms !important;
+    }
+  }
+
+  /* Focus ring — always visible, never removed */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  a {
+    color: var(--color-text-link);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--color-text-link-hover);
+  }
+}

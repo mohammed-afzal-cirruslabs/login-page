@@ -1,0 +1,114 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$metadata": {
+    "direction": "Amazon Utility + Vercel Calm",
+    "version": "1.0.0",
+    "ticket": "S-2",
+    "status": "awaiting-commander-approval"
+  },
+  "color": {
+    "brand": {
+      "primary":        { "light": "#FF9900",   "dark": "#FF9900",   "$description": "Amazon orange — primary CTA, add-to-cart, key highlights" },
+      "primary-hover":  { "light": "#E68A00",   "dark": "#E68A00",   "$description": "Primary button hover state" },
+      "primary-fg":     { "light": "#111111",   "dark": "#111111",   "$description": "Text on primary orange backgrounds" },
+      "secondary":      { "light": "#131921",   "dark": "#131921",   "$description": "Navy — top navigation bar background" },
+      "secondary-fg":   { "light": "#FFFFFF",   "dark": "#FFFFFF",   "$description": "Text on secondary navy backgrounds" },
+      "accent":         { "light": "#00A8A8",   "dark": "#00C4C4",   "$description": "Teal — focus rings, links, interactive highlights" },
+      "accent-hover":   { "light": "#008C8C",   "dark": "#00A8A8",   "$description": "Accent hover state" }
+    },
+    "neutral": {
+      "background":     { "light": "#FFFFFF",   "dark": "#0F1111",   "$description": "Page background" },
+      "surface-1":      { "light": "#F7F8F8",   "dark": "#1A1D1E",   "$description": "Card background" },
+      "surface-2":      { "light": "#EAEDED",   "dark": "#232F3E",   "$description": "Panel / sidebar background" },
+      "surface-3":      { "light": "#D5D9D9",   "dark": "#2E3A4A",   "$description": "Elevated panel (dark: lighter = higher)" },
+      "border":         { "light": "rgba(0,0,0,0.12)",   "dark": "rgba(255,255,255,0.10)", "$description": "Default divider / border" },
+      "border-strong":  { "light": "rgba(0,0,0,0.24)",   "dark": "rgba(255,255,255,0.20)", "$description": "Emphasis border" }
+    },
+    "text": {
+      "primary":        { "light": "#111111",   "dark": "#F2F2F2",   "$description": "Body copy, headings — contrast ≥ 7:1" },
+      "secondary":      { "light": "#565959",   "dark": "#A6A6A6",   "$description": "Supporting text — contrast ≥ 4.5:1" },
+      "muted":          { "light": "#8D8D8D",   "dark": "#6B6B6B",   "$description": "Timestamps, captions" },
+      "inverse":        { "light": "#FFFFFF",   "dark": "#111111",   "$description": "Text on coloured backgrounds" },
+      "link":           { "light": "#0066C0",   "dark": "#5DADE2",   "$description": "Hyperlinks — contrast ≥ 4.5:1" },
+      "link-hover":     { "light": "#C45500",   "dark": "#F0A500",   "$description": "Link hover" },
+      "on-primary":     { "light": "#111111",   "dark": "#111111",   "$description": "Text placed directly on primary orange" }
+    },
+    "semantic": {
+      "success":         { "light": "#067D62",  "dark": "#2ECC71",   "$description": "In stock, order confirmed" },
+      "success-surface": { "light": "#EAF5F1",  "dark": "#0D2E23",   "$description": "Success banner background" },
+      "warning":         { "light": "#C45500",  "dark": "#F0A500",   "$description": "Low stock, caution" },
+      "warning-surface": { "light": "#FEF9EE",  "dark": "#2D1F00",   "$description": "Warning banner background" },
+      "danger":          { "light": "#CC0C39",  "dark": "#FF4D6A",   "$description": "Error, destructive, out of stock" },
+      "danger-surface":  { "light": "#FFF0F0",  "dark": "#2D0010",   "$description": "Error banner background" },
+      "info":            { "light": "#0066C0",  "dark": "#5DADE2",   "$description": "Informational notice" },
+      "info-surface":    { "light": "#EEF5FB",  "dark": "#0A1929",   "$description": "Info banner background" }
+    }
+  },
+  "typography": {
+    "font-family": {
+      "base": { "value": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" },
+      "mono": { "value": "'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace" }
+    },
+    "font-size": {
+      "xs":   { "value": "12px" }, "sm":   { "value": "14px" },
+      "base": { "value": "16px" }, "lg":   { "value": "20px" },
+      "xl":   { "value": "24px" }, "2xl":  { "value": "32px" }, "3xl":  { "value": "48px" }
+    },
+    "line-height": {
+      "xs":   { "value": "16px" }, "sm":   { "value": "20px" },
+      "base": { "value": "24px" }, "lg":   { "value": "28px" },
+      "xl":   { "value": "32px" }, "2xl":  { "value": "40px" }, "3xl":  { "value": "56px" }
+    },
+    "font-weight": {
+      "regular": { "value": "400" }, "medium":   { "value": "500" },
+      "semibold": { "value": "600" }, "bold":    { "value": "700" }
+    }
+  },
+  "spacing": {
+    "1":  { "value": "4px"  }, "2":  { "value": "8px"  }, "3":  { "value": "12px" },
+    "4":  { "value": "16px" }, "5":  { "value": "20px" }, "6":  { "value": "24px" },
+    "8":  { "value": "32px" }, "10": { "value": "40px" }, "12": { "value": "48px" },
+    "16": { "value": "64px" },
+    "content-max-width":      { "value": "1280px" },
+    "page-padding-desktop":   { "value": "24px" },
+    "page-padding-mobile":    { "value": "16px" }
+  },
+  "border-radius": {
+    "sm":   { "value": "4px"    }, "md":   { "value": "8px"    },
+    "lg":   { "value": "12px"   }, "full": { "value": "9999px" }
+  },
+  "shadow": {
+    "none": { "light": "none",                             "dark": "none" },
+    "sm":   { "light": "0 1px 3px rgba(0,0,0,0.12)",      "dark": "none" },
+    "md":   { "light": "0 4px 12px rgba(0,0,0,0.15)",     "dark": "none" },
+    "lg":   { "light": "0 8px 32px rgba(0,0,0,0.20)",     "dark": "none" }
+  },
+  "z-index": {
+    "base":     { "value": "0"   }, "raised":   { "value": "10"  },
+    "dropdown": { "value": "100" }, "sticky":   { "value": "200" },
+    "overlay":  { "value": "300" }, "modal":    { "value": "400" },
+    "toast":    { "value": "500" }
+  },
+  "transition": {
+    "duration-fast": { "value": "150ms" },
+    "duration-base": { "value": "200ms" },
+    "duration-slow": { "value": "300ms" },
+    "easing":        { "value": "cubic-bezier(0.16, 1, 0.3, 1)" },
+    "reduced-motion-duration": { "value": "0ms" }
+  },
+  "breakpoint": {
+    "xs":  { "value": "0px"    }, "sm":  { "value": "640px"  },
+    "md":  { "value": "768px"  }, "lg":  { "value": "1024px" },
+    "xl":  { "value": "1280px" }, "2xl": { "value": "1536px" }
+  },
+  "component-heights": {
+    "control-sm": { "value": "32px" },
+    "control-md": { "value": "40px" },
+    "control-lg": { "value": "48px" }
+  },
+  "icon-size": {
+    "inline":     { "value": "16px" },
+    "standalone": { "value": "20px" },
+    "nav":        { "value": "24px" }
+  }
+}
