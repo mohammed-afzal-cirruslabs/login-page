@@ -1,0 +1,17 @@
+{
+  "name": "login-page",
+  "version": "1.0.0",
+  "description": "Clean, accessible login page — HTML/CSS/JS, no build step",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node --test"
+  },
+  "keywords": ["login", "authentication"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
