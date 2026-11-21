@@ -125,8 +125,7 @@ export function LoginForm() {
       });
 
       // Success - in a real app, redirect or update auth state
-      console.log('Login successful:', formData.email);
-      alert('Login successful!');
+      // TODO: Redirect to dashboard or update auth state
       
     } catch (error) {
       setErrors({
