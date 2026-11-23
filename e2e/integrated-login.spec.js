@@ -9,6 +9,7 @@ test.describe('Integrated Login & Contact Page', () => {
   // Page Load Tests
   test.describe('Page Load', () => {
     test('should load the page successfully', async ({ page }) => {
+      await page.waitForLoadState('domcontentloaded');
       await expect(page).toHaveTitle(/Login & Contact/);
     });
 
@@ -50,8 +51,8 @@ test.describe('Integrated Login & Contact Page', () => {
       const ssoBtn = page.locator('#ssoLoginBtn');
       await ssoBtn.click();
       
-      // Wait for success message
-      const successMsg = page.locator('#ssoSuccessMessage');
+      // Wait for success message to have the 'show' class (which makes it visible)
+      const successMsg = page.locator('#ssoSuccessMessage.show');
       await expect(successMsg).toBeVisible({ timeout: 2000 });
       await expect(successMsg).toHaveText(/Successfully logged in via SSO/);
     });
@@ -77,24 +78,27 @@ test.describe('Integrated Login & Contact Page', () => {
       expect(hasLogin).toBe(true);
     });
 
-    test('should log SSO initialization', async ({ page }) => {
+    test('should log SSO initialization', async ({ page, context }) => {
       const logs = [];
-      page.on('console', msg => {
+      // Create a new page to capture logs from the start
+      const newPage = await context.newPage();
+      newPage.on('console', msg => {
         if (msg.type() === 'log') {
           logs.push(msg.text());
         }
       });
-      await page.reload();
-      await page.waitForLoadState('networkidle');
+      await newPage.goto('/');
+      await newPage.waitForLoadState('networkidle');
       expect(logs.some(log => log.includes('SSO module initialized'))).toBe(true);
+      await newPage.close();
     });
 
     test('should hide SSO success message after timeout', async ({ page }) => {
       const ssoBtn = page.locator('#ssoLoginBtn');
       await ssoBtn.click();
       
-      const successMsg = page.locator('#ssoSuccessMessage');
-      await expect(successMsg).toBeVisible();
+      const successMsg = page.locator('#ssoSuccessMessage.show');
+      await expect(successMsg).toBeVisible({ timeout: 2000 });
       
       // Wait for message to disappear (5 seconds + buffer)
       await page.waitForTimeout(5500);
@@ -254,8 +258,8 @@ test.describe('Integrated Login & Contact Page', () => {
       
       await page.locator('#contactForm button[type="submit"]').click();
       
-      // Success message should appear
-      const successMsg = page.locator('#contactSuccessMessage');
+      // Success message should appear with 'show' class
+      const successMsg = page.locator('#contactSuccessMessage.show');
       await expect(successMsg).toBeVisible();
       await expect(successMsg).toContainText(/Thank you for your message/);
     });
@@ -268,8 +272,8 @@ test.describe('Integrated Login & Contact Page', () => {
       
       await page.locator('#contactForm button[type="submit"]').click();
       
-      // Wait for success message
-      await expect(page.locator('#contactSuccessMessage')).toBeVisible();
+      // Wait for success message with 'show' class
+      await expect(page.locator('#contactSuccessMessage.show')).toBeVisible();
       
       // Form should be reset
       await expect(page.locator('#contactName')).toHaveValue('');
@@ -296,7 +300,7 @@ test.describe('Integrated Login & Contact Page', () => {
       
       await page.locator('#contactForm button[type="submit"]').click();
       
-      const successMsg = page.locator('#contactSuccessMessage');
+      const successMsg = page.locator('#contactSuccessMessage.show');
       await expect(successMsg).toBeVisible();
       
       // Wait for message to disappear (5 seconds + buffer)
@@ -410,18 +414,21 @@ test.describe('Integrated Login & Contact Page', () => {
       expect(scripts.some(src => src.includes('js/app.js'))).toBe(true);
     });
 
-    test('should initialize app on DOMContentLoaded', async ({ page }) => {
+    test('should initialize app on DOMContentLoaded', async ({ page, context }) => {
       const logs = [];
-      page.on('console', msg => {
+      // Create a new page to capture logs from the start
+      const newPage = await context.newPage();
+      newPage.on('console', msg => {
         if (msg.type() === 'log') {
           logs.push(msg.text());
         }
       });
       
-      await page.reload();
-      await page.waitForLoadState('networkidle');
+      await newPage.goto('/');
+      await newPage.waitForLoadState('networkidle');
       
       expect(logs.some(log => log.includes('App initialized'))).toBe(true);
+      await newPage.close();
     });
 
     test('should not interfere between login and contact forms', async ({ page }) => {

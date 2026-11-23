@@ -9,7 +9,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'http://127.0.0.1:8080',
+    baseURL: 'http://127.0.0.1:9090',
     trace: 'on-first-retry',
   },
 
@@ -21,9 +21,9 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: 'cd /workspaces/6ab2527861adff59c296dfb5_cohort_6b02088034cbe07656269307/login-page && python3 -m http.server 8080',
-    url: 'http://127.0.0.1:8080',
-    cwd: '/workspaces/6ab2527861adff59c296dfb5_cohort_6b02088034cbe07656269307/login-page',
-    reuseExistingServer: true,
+    command: 'python3 -m http.server 9090',
+    url: 'http://127.0.0.1:9090',
+    reuseExistingServer: !process.env.CI,
+    timeout: 120000,
   },
 });

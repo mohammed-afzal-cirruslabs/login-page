@@ -1,0 +1,15 @@
+{
+  "name": "login-page",
+  "version": "1.0.0",
+  "description": "Clean, accessible login page — HTML/CSS/JS, no build step",
+  "main": "playwright.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.65.1"
+  }
+}
