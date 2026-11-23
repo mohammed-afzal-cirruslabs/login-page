@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Simple validation
             if (email && password) {
                 console.log('Login attempt:', { email, password: '***' });
-                alert('Login functionality would be implemented here.\\n\\nEmail: ' + email);
+                alert('Login functionality would be implemented here.\n\nEmail: ' + email);
                 
                 // In a real app, you would send this to a server
                 // For demo purposes, just reset the form
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Show success message
                 const successMsg = document.getElementById('contactSuccessMessage');
                 if (successMsg) {
-                    successMsg.textContent = 'Thank you for your message! We\\'ll get back to you soon.';
+                    successMsg.textContent = 'Thank you for your message! We\'ll get back to you soon.';
                     successMsg.classList.add('show');
                     
                     // Reset form

@@ -52,8 +52,9 @@ test.describe('Integrated Login & Contact Page', () => {
       await ssoBtn.click();
       
       // Wait for success message to have the 'show' class (which makes it visible)
+      // SSO login has a 500ms delay before showing the message
       const successMsg = page.locator('#ssoSuccessMessage.show');
-      await expect(successMsg).toBeVisible({ timeout: 2000 });
+      await expect(successMsg).toBeVisible({ timeout: 3000 });
       await expect(successMsg).toHaveText(/Successfully logged in via SSO/);
     });
 
@@ -87,8 +88,10 @@ test.describe('Integrated Login & Contact Page', () => {
           logs.push(msg.text());
         }
       });
-      await newPage.goto('/');
+      await newPage.goto('/', { waitUntil: 'domcontentloaded' });
       await newPage.waitForLoadState('networkidle');
+      // Give a small buffer for all console logs to be captured
+      await newPage.waitForTimeout(100);
       expect(logs.some(log => log.includes('SSO module initialized'))).toBe(true);
       await newPage.close();
     });
@@ -98,8 +101,9 @@ test.describe('Integrated Login & Contact Page', () => {
       await ssoBtn.click();
       
       // First verify the message appears with .show class
+      // SSO login has a 500ms delay before showing the message
       const successMsgShow = page.locator('#ssoSuccessMessage.show');
-      await expect(successMsgShow).toBeVisible({ timeout: 2000 });
+      await expect(successMsgShow).toBeVisible({ timeout: 3000 });
       
       // Wait for message to disappear (5 seconds + buffer)
       await page.waitForTimeout(5500);
@@ -264,7 +268,7 @@ test.describe('Integrated Login & Contact Page', () => {
       
       // Success message should appear with 'show' class
       const successMsg = page.locator('#contactSuccessMessage.show');
-      await expect(successMsg).toBeVisible();
+      await expect(successMsg).toBeVisible({ timeout: 3000 });
       await expect(successMsg).toContainText(/Thank you for your message/);
     });
 
@@ -277,7 +281,7 @@ test.describe('Integrated Login & Contact Page', () => {
       await page.locator('#contactForm button[type="submit"]').click();
       
       // Wait for success message with 'show' class
-      await expect(page.locator('#contactSuccessMessage.show')).toBeVisible();
+      await expect(page.locator('#contactSuccessMessage.show')).toBeVisible({ timeout: 3000 });
       
       // Form should be reset
       await expect(page.locator('#contactName')).toHaveValue('');
@@ -306,7 +310,7 @@ test.describe('Integrated Login & Contact Page', () => {
       
       // First verify the message appears with .show class
       const successMsgShow = page.locator('#contactSuccessMessage.show');
-      await expect(successMsgShow).toBeVisible();
+      await expect(successMsgShow).toBeVisible({ timeout: 3000 });
       
       // Wait for message to disappear (5 seconds + buffer)
       await page.waitForTimeout(5500);
@@ -432,8 +436,10 @@ test.describe('Integrated Login & Contact Page', () => {
         }
       });
       
-      await newPage.goto('/');
+      await newPage.goto('/', { waitUntil: 'domcontentloaded' });
       await newPage.waitForLoadState('networkidle');
+      // Give a small buffer for all console logs to be captured
+      await newPage.waitForTimeout(100);
       
       expect(logs.some(log => log.includes('App initialized'))).toBe(true);
       await newPage.close();
