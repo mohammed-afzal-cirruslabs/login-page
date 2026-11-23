@@ -2,6 +2,7 @@
   "name": "login-page",
   "version": "1.0.0",
   "description": "Clean, accessible login page — HTML/CSS/JS, no build step",
+  "type": "module",
   "main": "playwright.config.js",
   "scripts": {
     "test": "playwright test",
