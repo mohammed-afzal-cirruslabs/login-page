@@ -97,12 +97,16 @@ test.describe('Integrated Login & Contact Page', () => {
       const ssoBtn = page.locator('#ssoLoginBtn');
       await ssoBtn.click();
       
-      const successMsg = page.locator('#ssoSuccessMessage.show');
-      await expect(successMsg).toBeVisible({ timeout: 2000 });
+      // First verify the message appears with .show class
+      const successMsgShow = page.locator('#ssoSuccessMessage.show');
+      await expect(successMsgShow).toBeVisible({ timeout: 2000 });
       
       // Wait for message to disappear (5 seconds + buffer)
       await page.waitForTimeout(5500);
-      await expect(successMsg).not.toBeVisible();
+      
+      // Check that the .show class is removed (element no longer has .show)
+      const successMsg = page.locator('#ssoSuccessMessage');
+      await expect(successMsg).not.toHaveClass(/show/);
     });
   });
 
@@ -300,12 +304,16 @@ test.describe('Integrated Login & Contact Page', () => {
       
       await page.locator('#contactForm button[type="submit"]').click();
       
-      const successMsg = page.locator('#contactSuccessMessage.show');
-      await expect(successMsg).toBeVisible();
+      // First verify the message appears with .show class
+      const successMsgShow = page.locator('#contactSuccessMessage.show');
+      await expect(successMsgShow).toBeVisible();
       
       // Wait for message to disappear (5 seconds + buffer)
       await page.waitForTimeout(5500);
-      await expect(successMsg).not.toBeVisible();
+      
+      // Check that the .show class is removed (element no longer has .show)
+      const successMsg = page.locator('#contactSuccessMessage');
+      await expect(successMsg).not.toHaveClass(/show/);
     });
   });
 
