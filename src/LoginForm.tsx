@@ -12,7 +12,11 @@ interface FormErrors {
   submit?: string;
 }
 
-export function LoginForm() {
+interface LoginFormProps {
+  onLogin?: (data: LoginFormData) => void | Promise<void>;
+}
+
+export function LoginForm({ onLogin }: LoginFormProps = {}) {
   const [formData, setFormData] = useState<LoginFormData>({
     email: '',
     password: '',
@@ -123,6 +127,11 @@ export function LoginForm() {
           }
         }, 1500);
       });
+
+      // Call onLogin callback after successful authentication, before navigation
+      if (onLogin) {
+        await onLogin(formData);
+      }
 
       // Success - in a real app, redirect or update auth state
       // TODO: Redirect to dashboard or update auth state
