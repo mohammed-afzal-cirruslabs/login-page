@@ -61,6 +61,12 @@
    * @param {boolean} animate - Whether to animate the transition
    */
   function updateIcons(isDark, animate) {
+    // Guard against missing icons
+    if (!sunIcon || !moonIcon) {
+      console.warn('Theme toggle icons not found');
+      return;
+    }
+    
     const exitIcon = isDark ? sunIcon : moonIcon;
     const enterIcon = isDark ? moonIcon : sunIcon;
     
@@ -105,12 +111,14 @@
     
     const isDark = theme === THEME_DARK;
     
-    // Update button ARIA attributes
-    toggle.setAttribute(
-      'aria-label', 
-      isDark ? 'Switch to light mode' : 'Switch to dark mode'
-    );
-    toggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    // Update button ARIA attributes (only if button exists)
+    if (toggle) {
+      toggle.setAttribute(
+        'aria-label', 
+        isDark ? 'Switch to light mode' : 'Switch to dark mode'
+      );
+      toggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    }
     
     // Update icon visibility
     updateIcons(isDark, animate);
@@ -123,13 +131,13 @@
   
   /**
    * Initialize theme from localStorage or system preference
+   * Only updates UI elements, not the data-theme attribute (already set in head)
    */
   function initTheme() {
-    const savedTheme = getSavedTheme();
-    const systemPreference = getSystemPreference();
-    const initialTheme = savedTheme || systemPreference;
+    const currentTheme = html.getAttribute('data-theme') || 'light';
     
-    setTheme(initialTheme, false);
+    // Sync UI elements with the theme already applied in <head>
+    setTheme(currentTheme, false);
   }
   
   /**
