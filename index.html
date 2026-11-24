@@ -6,186 +6,30 @@
   <meta name="description" content="Sign in to your account">
   <title>Login — Welcome Back</title>
   
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
   <!-- Theme initialization (before first paint to prevent FOUC) -->
   <script>
     (function() {
-      const savedTheme = localStorage.getItem('theme');
-      const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      const initialTheme = savedTheme || systemPreference;
-      document.documentElement.setAttribute('data-theme', initialTheme);
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        const initialTheme = savedTheme || systemPreference;
+        document.documentElement.setAttribute('data-theme', initialTheme);
+      } catch (error) {
+        // Fallback to light theme if localStorage fails
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
     })();
   </script>
   
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="theme-toggle.css">
-  <style>
-    /* Login Page Specific Styles */
-    .login-container {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: var(--page-padding);
-    }
-    
-    .login-card {
-      width: 100%;
-      max-width: var(--content-max-width);
-      padding: var(--space-12);
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-primary);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-md);
-    }
-    
-    .login-header {
-      text-align: center;
-      margin-bottom: var(--space-8);
-    }
-    
-    .login-title {
-      font-size: var(--text-2xl);
-      font-weight: var(--font-semibold);
-      color: var(--text-primary);
-      margin-bottom: var(--space-2);
-      line-height: var(--line-height-tight);
-    }
-    
-    .login-subtitle {
-      font-size: var(--text-sm);
-      color: var(--text-secondary);
-      line-height: var(--line-height-normal);
-    }
-    
-    .form-group {
-      margin-bottom: var(--space-6);
-    }
-    
-    .form-label {
-      display: block;
-      font-size: var(--text-sm);
-      font-weight: var(--font-medium);
-      color: var(--text-primary);
-      margin-bottom: var(--space-2);
-    }
-    
-    .form-input {
-      width: 100%;
-      height: var(--control-height-md);
-      padding: 0 var(--space-4);
-      font-size: var(--text-base);
-      font-family: var(--font-family);
-      color: var(--text-primary);
-      background: var(--bg-tertiary);
-      border: 1px solid var(--border-primary);
-      border-radius: var(--radius-md);
-      transition: 
-        border-color var(--transition-fast),
-        box-shadow var(--transition-fast);
-    }
-    
-    .form-input::placeholder {
-      color: var(--text-tertiary);
-    }
-    
-    .form-input:hover {
-      border-color: var(--border-focus);
-    }
-    
-    .form-input:focus {
-      outline: none;
-      border-color: var(--accent-primary);
-      box-shadow: var(--focus-ring), var(--focus-ring-offset);
-    }
-    
-    .form-input:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-    
-    .form-helper {
-      font-size: var(--text-xs);
-      color: var(--text-tertiary);
-      margin-top: var(--space-1);
-      line-height: var(--line-height-normal);
-    }
-    
-    .form-helper.error {
-      color: var(--danger);
-    }
-    
-    .form-actions {
-      margin-top: var(--space-8);
-    }
-    
-    .btn-primary {
-      width: 100%;
-      height: var(--control-height-md);
-      padding: 0 var(--space-6);
-      font-size: var(--text-base);
-      font-weight: var(--font-medium);
-      font-family: var(--font-family);
-      color: var(--text-inverse);
-      background: var(--accent-primary);
-      border: none;
-      border-radius: var(--radius-md);
-      cursor: pointer;
-      transition: 
-        background-color var(--transition-fast),
-        transform var(--transition-fast);
-    }
-    
-    .btn-primary:hover {
-      background: var(--accent-hover);
-    }
-    
-    .btn-primary:active {
-      background: var(--accent-active);
-      transform: scale(0.98);
-    }
-    
-    .btn-primary:focus-visible {
-      outline: none;
-      box-shadow: var(--focus-ring), var(--focus-ring-offset);
-    }
-    
-    .btn-primary:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-    
-    .form-footer {
-      margin-top: var(--space-6);
-      text-align: center;
-      font-size: var(--text-sm);
-      color: var(--text-secondary);
-    }
-    
-    .form-link {
-      color: var(--accent-primary);
-      text-decoration: none;
-      font-weight: var(--font-medium);
-      transition: color var(--transition-fast);
-    }
-    
-    .form-link:hover {
-      color: var(--accent-hover);
-      text-decoration: underline;
-    }
-    
-    .form-link:focus-visible {
-      outline: 2px solid var(--accent-primary);
-      outline-offset: 2px;
-      border-radius: 2px;
-    }
-    
-    /* Responsive adjustments */
-    @media (max-width: 767px) {
-      .login-card {
-        padding: var(--space-6);
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   
@@ -198,7 +42,7 @@
     aria-pressed="false"
   >
     <!-- Sun Icon (Light Mode) -->
-    <svg class="theme-toggle-icon" id="sunIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <svg class="theme-toggle-icon visible" id="sunIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <circle cx="12" cy="12" r="4"/>
       <path d="M12 2v2"/>
       <path d="M12 20v2"/>
@@ -211,7 +55,7 @@
     </svg>
     
     <!-- Moon Icon (Dark Mode) - Hidden by default -->
-    <svg class="theme-toggle-icon" id="moonIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: none;">
+    <svg class="theme-toggle-icon hidden" id="moonIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
     </svg>
   </button>
@@ -266,106 +110,9 @@
     </div>
   </div>
   
-  <script>
-    // Theme Toggle Logic
-    (function() {
-      const html = document.documentElement;
-      const toggle = document.getElementById('themeToggle');
-      const sunIcon = document.getElementById('sunIcon');
-      const moonIcon = document.getElementById('moonIcon');
-      const announcement = document.getElementById('themeAnnouncement');
-      
-      // Initialize theme from localStorage or system preference
-      function initTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        const initialTheme = savedTheme || systemPreference;
-        
-        setTheme(initialTheme, false);
-      }
-      
-      // Set theme and update UI
-      function setTheme(theme, animate = true) {
-        html.setAttribute('data-theme', theme);
-        
-        // Update button ARIA
-        const isDark = theme === 'dark';
-        toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-        toggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
-        
-        // Update icon visibility
-        if (animate) {
-          // Animate icon transition
-          const exitIcon = isDark ? sunIcon : moonIcon;
-          const enterIcon = isDark ? moonIcon : sunIcon;
-          
-          exitIcon.classList.add('exit');
-          
-          setTimeout(() => {
-            exitIcon.style.display = 'none';
-            exitIcon.classList.remove('exit');
-            
-            enterIcon.style.display = 'block';
-            enterIcon.classList.add('enter');
-            
-            setTimeout(() => {
-              enterIcon.classList.remove('enter');
-            }, 200);
-          }, 200);
-        } else {
-          // Instant switch (on page load)
-          sunIcon.style.display = isDark ? 'none' : 'block';
-          moonIcon.style.display = isDark ? 'block' : 'none';
-        }
-        
-        // Announce to screen readers
-        if (animate) {
-          announcement.textContent = `Theme switched to ${theme} mode`;
-        }
-      }
-      
-      // Toggle theme
-      function toggleTheme() {
-        const currentTheme = html.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
-        setTheme(newTheme, true);
-        localStorage.setItem('theme', newTheme);
-      }
-      
-      // Event listeners
-      toggle.addEventListener('click', toggleTheme);
-      
-      // Keyboard support
-      toggle.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleTheme();
-        }
-      });
-      
-      // Listen for system theme changes
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        if (!localStorage.getItem('theme')) {
-          setTheme(e.matches ? 'dark' : 'light', true);
-        }
-      });
-      
-      // Initialize on page load
-      initTheme();
-    })();
-    
-    // Form submission handler
-    document.getElementById('loginForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      
-      // Demo: Show success message
-      alert(`Login submitted!\nEmail: ${email}\n(This is a demo - no actual authentication)`);
-    });
-  </script>
+  <!-- Scripts -->
+  <script src="theme-toggle.js"></script>
+  <script src="app.js"></script>
   
 </body>
 </html>

@@ -80,6 +80,15 @@
     transform var(--transition-base);
 }
 
+/* Icon visibility states */
+.theme-toggle-icon.hidden {
+  display: none;
+}
+
+.theme-toggle-icon.visible {
+  display: block;
+}
+
 /* Icon animation states */
 .theme-toggle-icon.exit {
   opacity: 0;
