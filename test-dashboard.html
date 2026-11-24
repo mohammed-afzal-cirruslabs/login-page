@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Component Test</title>
+    <link rel="stylesheet" href="src/components/Dashboard.css">
+</head>
+<body>
+    <div id="app"></div>
+    
+    <script src="src/components/Dashboard.js"></script>
+    <script>
+        // Test the Dashboard component
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Testing Dashboard component...');
+            
+            // Test that Dashboard is available
+            if (typeof Dashboard === 'undefined') {
+                console.error('Dashboard is not defined!');
+                return;
+            }
+            
+            console.log('Dashboard object:', Dashboard);
+            
+            // Test rendering
+            try {
+                Dashboard.render('#app', {
+                    onLogout: function() {
+                        console.log('Logout clicked!');
+                        alert('Logout callback was called successfully!');
+                    }
+                });
+                console.log('Dashboard rendered successfully!');
+            } catch (error) {
+                console.error('Error rendering Dashboard:', error);
+            }
+        });
+    </script>
+</body>
+</html>
